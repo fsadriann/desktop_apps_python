@@ -48,6 +48,13 @@ ventana_principal.resizable(False, False)
 ventana_principal.config(bg="navy")
 
 #------------------------
+# variables globales
+#------------------------
+
+X=StringVar()
+Y=StringVar()
+
+#------------------------
 # frame entrada datos
 #------------------------
 frame_entrada = Frame(ventana_principal)
@@ -70,13 +77,13 @@ lb_x.config(font=("Arial", 16), bg="white", fg="navy")
 lb_x.place(x=240, y=60)
 
 # caja de texto para x
-Entry_x = Entry(frame_entrada)
+Entry_x = Entry(frame_entrada, textvariable=X)
 Entry_x.config(font=("Arial", 16), bg="white", fg="navy",)
 Entry_x.focus_set()
 Entry_x.place(x=280, y=60, width=100)
 
 # etiqueta para el valor de y
-lb_y = Label(frame_entrada, text="Y = ")
+lb_y = Label(frame_entrada, text="Y = ", textvariable=Y)
 lb_y.config(font=("Arial", 16), bg="white", fg="navy")
 lb_y.place(x=240, y=100)
 
