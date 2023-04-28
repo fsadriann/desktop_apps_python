@@ -75,6 +75,13 @@ frame_escudo = Frame(ventana_principal)
 frame_escudo = Frame(bg="white", width=50, height=200)
 frame_escudo.place(x=400, y=250)
 
+#------------------------
+# frame escudo_amarillo
+#------------------------
+frame_escudo = Frame(ventana_principal)
+frame_escudo = Frame(bg="yellow", width=15, height=200)
+frame_escudo.place(x=250, y=250)
+
 
 
 # run
