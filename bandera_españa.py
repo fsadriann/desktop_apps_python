@@ -34,25 +34,48 @@ ventana_principal.resizable(False, False)
 ventana_principal.config(bg="white")
 
 #------------------------
+# frame rojo
+#------------------------
+frame_rojo = Frame(ventana_principal)
+frame_rojo = Frame(bg="red3", width=1200, height=200)
+frame_rojo.place(x=0, y=0)
+
+#------------------------
 # frame amarillo
 #------------------------
 frame_amarillo = Frame(ventana_principal)
 frame_amarillo = Frame(bg="yellow", width=1200, height=400)
-frame_amarillo.place(x=0, y=0)
+frame_amarillo.place(x=0, y=200)
 
 #------------------------
 # frame rojo
 #------------------------
 frame_rojo = Frame(ventana_principal)
-frame_rojo = Frame(bg="blue", width=1200, height=453200)
-frame_rojo.place(x=0, y=300)
+frame_rojo = Frame(bg="red3", width=1200, height=210)
+frame_rojo.place(x=0, y=500)
 
 #------------------------
-# frame azul
+# frame escudo
 #------------------------
-frame_azul = Frame(ventana_principal)
-frame_azul = Frame(bg="red", width=1200, height=400)
-frame_azul.place(x=0, y=500)
+frame_escudo = Frame(ventana_principal)
+frame_escudo = Frame(bg="red3", width=200, height=200)
+frame_escudo.place(x=200, y=250)
+
+#------------------------
+# frame escudo
+#------------------------
+frame_escudo = Frame(ventana_principal)
+frame_escudo = Frame(bg="white", width=50, height=200)
+frame_escudo.place(x=200, y=250)
+
+#------------------------
+# frame escudo
+#------------------------
+frame_escudo = Frame(ventana_principal)
+frame_escudo = Frame(bg="white", width=50, height=200)
+frame_escudo.place(x=400, y=250)
+
+
 
 # run
 # se ejecuta el método mainloop() de la clase Tk() a través de la instancia ventana_principal. Este método despliega la ventana de la app en pantalla y queda a la espera de lo que el usuario haga. (clic en un botón, etc). cada acción del usuario se conoce como evento. el método mainloop() es un bucle infinito.
