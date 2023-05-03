@@ -11,16 +11,34 @@ from tkinter import messagebox
 #------------------------
 
 # sumar
-def sumar():
-    pass
+def calcular():
+    messagebox.showinfo("Mini Calculadora 1.0", "las operaciones serán realizadas")
+    s = int(x.get()) + int(y.get())
+    r = int(x.get()) - int(y.get())
+    m = int(x.get()) * int(y.get())
+    d = int(x.get()) / int(y.get())
+    de = int(x.get()) // int(y.get())
+    mod = int(x.get()) % int(y.get())
+    p = int(x.get()) ** int(y.get())
+    t_resultados.insert(INSERT, f"{int(x.get())} + {int(y.get())} = {s}")
+    t_resultados.insert(INSERT, f"\n{int(x.get())} - {int(y.get())} = {r}")
+    t_resultados.insert(INSERT, f"\n{int(x.get())} * {int(y.get())} = {m}")
+    t_resultados.insert(INSERT, f"\n{int(x.get())} / {int(y.get())} = {d}")
+    t_resultados.insert(INSERT, f"\n{int(x.get())} // {int(y.get())} = {de}")
+    t_resultados.insert(INSERT, f"\n{int(x.get())} % {int(y.get())} = {mod}")
+    t_resultados.insert(INSERT, f"\n{int(x.get())} ** {int(y.get())} = {p}")
+
 
 # borrar
 def borrar():
-    pass
+    messagebox.showinfo("Mini Calculadora 1.0", "los datos serán borrados")
+    x.set("")
+    y.set("")
+    t_resultados.delete("1.0", "end")
 
 # salir
 def salir():
-    messagebox.showinfo("Suma Enteros 1.0", "La app se cerrará")
+    messagebox.showinfo("Mini Calculadora 1.0", "La app se cerrará")
     ventana_principal.destroy()
 
 #------------------------------
@@ -33,7 +51,7 @@ ventana_principal = Tk()
 
 # titulo de la ventana
 
-ventana_principal.title("bandera de colombia")
+ventana_principal.title("Mini calculadora 1.0")
 
 # tamaño de la ventana
 
@@ -51,8 +69,8 @@ ventana_principal.config(bg="navy")
 # variables globales
 #------------------------
 
-X=StringVar()
-Y=StringVar()
+x=StringVar()
+y=StringVar()
 
 #------------------------
 # frame entrada datos
@@ -67,7 +85,7 @@ lb_logo = Label(frame_entrada, image=logo, bg="white")
 lb_logo.place(x=70, y=40)
 
 # titulo de la app
-titulo=Label(frame_entrada, text="Suma de enteros 1.0")
+titulo=Label(frame_entrada, text="Mini calculadora 1.0")
 titulo.config(font=("Arial", 16), bg="white", fg="navy")
 titulo.place(x=240, y=10)
 
@@ -77,13 +95,13 @@ lb_x.config(font=("Arial", 16), bg="white", fg="navy")
 lb_x.place(x=240, y=60)
 
 # caja de texto para x
-Entry_x = Entry(frame_entrada, textvariable=X)
+Entry_x = Entry(frame_entrada, textvariable=x)
 Entry_x.config(font=("Arial", 16), bg="white", fg="navy",)
 Entry_x.focus_set()
 Entry_x.place(x=280, y=60, width=100)
 
 # etiqueta para el valor de y
-lb_y = Label(frame_entrada, text="Y = ", textvariable=Y)
+lb_y = Label(frame_entrada, text="Y = ", textvariable=y)
 lb_y.config(font=("Arial", 16), bg="white", fg="navy")
 lb_y.place(x=240, y=100)
 
@@ -99,8 +117,8 @@ frame_operaciones = Frame(ventana_principal)
 frame_operaciones = Frame(bg="white", width=480, height=100)
 frame_operaciones.place(x=10, y=200)
 
-# boton para sumar
-bt_sumar = Button(frame_operaciones, text="Sumar", command=sumar)
+# boton para calcular
+bt_sumar = Button(frame_operaciones, text="Calcular", command=calcular)
 bt_sumar.config(font=("Arial", 16), bg="white", fg="navy")
 bt_sumar.place(x=45, y=35, width=100, height=30)
 
