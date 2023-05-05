@@ -110,7 +110,7 @@ entry_y.focus_set()
 entry_y.place(x=290, y=120)
 
 #----------------------------------
-# frama operaciones
+# frame operaciones
 #-----------------------------------
 
 frame_operaciones = Frame(ventana_principal)
