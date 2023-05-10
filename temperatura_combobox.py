@@ -5,6 +5,7 @@
 # se importa la libreria tkinter con todas sus funciones
 from tkinter import *
 from tkinter import messagebox, ttk
+import tkinter
 
 #-------------------------
 # funciones de la app
@@ -12,19 +13,12 @@ from tkinter import messagebox, ttk
 
 # sumar
 
-def show_selection():
-    # Obtener la opción seleccionada.
-    selection = combo.get()
-    messagebox.showinfo(
-        message=f"La opción seleccionada es: {selection}",
-        title="Selección"
-    )
 def convertir():
     messagebox.showinfo("Temperatura 1.0", "Conversión realizada")
     cent = int(c.get())
-    entrada = listbox_kf.curselection()
+    entrada = Combobox_kf.get()
     if entrada != ():
-        temp = listbox_kf.get(entrada)
+        temp = Combobox_kf.get()
         if temp == "Kelvin":
             k = cent + 273.15
             t_resultados.insert(INSERT, f"\n{int(c.get())} °C equivalen a {k} °K")
@@ -44,6 +38,8 @@ def borrar():
 def salir():
     messagebox.showinfo("Temperatura 1.0", "La app se va a cerrar")
     ventana_principal.destroy()
+
+
 
 #-----------------------------
 # ventana principal de la app
@@ -68,7 +64,12 @@ combo = ttk.Combobox(ventana_principal)
 # variables globales
 #--------------------------------
 c = StringVar()
-kf = StringVar(value="Kelvin Fahrenheit")
+kf = StringVar(value=" -")
+
+combo = ttk.Combobox(
+    ventana_principal,
+    values=["Kelvin", "Fahrenheit"],
+    state="readonly")
 
 #--------------------------------
 # frame entrada datos
@@ -78,6 +79,7 @@ frame_entrada.config(bg="white", width=480, height=180)
 frame_entrada.place(x=10, y=10)
 
 # logo de la app
+
 logo = PhotoImage(file="img/temperatura.png")
 lb_logo = Label(frame_entrada, image=logo, bg="white")
 lb_logo.place(x=70,y=40)
@@ -98,11 +100,10 @@ entry_c.config(bg="white", fg="blue", font=("Times New Roman", 18), width=6)
 entry_c.focus_set()
 entry_c.place(x=300,y=60)
 
-# lista para kelvin y fahrenheit
-listbox_kf = Listbox(frame_entrada, height=2, width=10, bd=2, listvariable=kf)
-listbox_kf.config(bg="white", fg="blue", font=("Helvetica", 18))
-listbox_kf.place(x=240, y=110)
-
+# combobox para kelvin y fahrenheit
+Combobox_kf = ttk.Combobox(frame_entrada, textvariable=kf)
+Combobox_kf.config(values=["Kelvin", "Fahrenheit"], state="readonly")
+Combobox_kf.place(x=240, y=100, width=150, height=30)
 #--------------------------------
 # frame operaciones
 #--------------------------------
